@@ -97,3 +97,47 @@
         incorrect_answers: ["Python", "C", "Jakarta"],
       },
     ];
+
+    
+
+    let rightAnswers = 0
+    const titolo = document.querySelector("p[class='domanda']")
+    const numberQuestion = document.querySelector("span[class='numero-attuale-domanda']")
+    const allButtons = document.querySelectorAll("input[type='button']")
+    let indice = 0
+
+    
+    
+    
+    window.addEventListener('load', firstQuery())
+    function firstQuery() {
+      titolo.innerText = questions[0].question
+    }
+    
+    button.addEventListener('click', changeTitle())
+    
+
+    function changePage() {
+
+      indice += 1
+
+      changeTitle(); 
+      /* changeAnswers();  */
+      changeNad(); 
+    
+    }
+    
+    
+    function changeTitle() {
+      titolo.innerText = questions[indice].question
+    }
+    function changeAnswers() {
+      titolo.innerText = questions[indice].question
+    }
+    function changeNad() {
+      numberQuestion.innerText = indice  + 1 
+    }
+    
+
+
+
