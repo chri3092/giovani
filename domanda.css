@@ -65,8 +65,8 @@ div[class="elenco-risposte"] .box-risposta:hover {
 }
 
 p[class="domanda"] {
-  margin-bottom: -14rem;
-  margin-top: 10rem;
+  margin-bottom: -15rem;
+  margin-top: 11rem;
   color: white;
   padding-bottom: 3rem;
   font-size: 40px;
@@ -74,10 +74,20 @@ p[class="domanda"] {
 
 p[class="numero-domanda"] {
   color: white;
-  margin-top: 5rem;
+  margin-top: 6rem;
 }
 
 .purple {
   color: #900080;
   font-weight: bold;
+}
+
+.timer {
+  position: absolute;
+  top: 3rem;
+  right: 9rem;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50px;
+  background-color: aqua;
 }
