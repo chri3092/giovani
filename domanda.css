@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Outfit&display=swap");
+body,
+html {
+  min-height: 100%;
+  margin: 0;
+  font-family: "Outfit", sans-serif;
+}
+
+/*imposto lo sfondo della pagina*/
+.bg-image {
+  background-image: url(./assets/bg.jpg);
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+nav {
+  width: 100%;
+}
+
+.logo {
+  position: absolute;
+  top: 2rem;
+  left: 5rem;
+  width: 10rem;
+}
+
+div[class="elenco-risposte"] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.2rem 2rem;
+  margin-top: 16rem;
+  margin-right: 15rem;
+  margin-left: 15rem;
+}
+
+div[class="elenco-risposte"] .box-risposta {
+  font-family: "Inter", sans-serif;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: white;
+  width: 16rem;
+  padding: 1.4rem 2.5rem;
+  border-radius: 50px;
+  font-size: 16px;
+}
+
+div[class="elenco-risposte"] .box-risposta:hover {
+  background: rgb(210, 0, 148);
+  background: linear-gradient(
+    180deg,
+    rgba(210, 0, 148, 1) 7%,
+    rgba(144, 0, 128, 1) 80%
+  );
+  cursor: pointer;
+}
+
+.domanda-risposte-flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+p[class="domanda"] {
+  margin-bottom: -14rem;
+  margin-top: 10rem;
+  color: white;
+  padding-bottom: 3rem;
+  font-size: 40px;
+}
+
+p[class="numero-domanda"] {
+  color: white;
+  margin-top: 5rem;
+}
+
+.purple {
+  color: #900080;
+  font-weight: bold;
+}
