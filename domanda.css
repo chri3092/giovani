@@ -119,6 +119,7 @@ p[class="numero-domanda"] {
   }
 }
 
+/*Per certe cose era meglio settare una min/max width ma adesso non ne ho vboglia*/
 @media (min-width: 1700px) {
   .timer {
     background-color: black;
