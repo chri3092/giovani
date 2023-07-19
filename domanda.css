@@ -4,6 +4,7 @@ html {
   min-height: 100%;
   margin: 0;
   font-family: "Outfit", sans-serif;
+  overflow: hidden;
 }
 
 /*imposto lo sfondo della pagina*/
@@ -41,7 +42,7 @@ div[class="elenco-risposte"] .box-risposta {
   font-family: "Inter", sans-serif;
   background-color: rgba(255, 255, 255, 0.3);
   color: white;
-  width: 16rem;
+  width: 20rem;
   padding: 1.4rem 2.5rem;
   border-radius: 50px;
   font-size: 16px;
@@ -66,15 +67,18 @@ div[class="elenco-risposte"] .box-risposta:hover {
 
 p[class="domanda"] {
   margin-bottom: -15rem;
-  margin-top: 11rem;
+  margin-top: 9rem;
+  margin-right: 5rem;
+  margin-left: 5rem;
   color: white;
   padding-bottom: 3rem;
-  font-size: 40px;
+  font-size: 35px;
+  text-align: center;
 }
 
 p[class="numero-domanda"] {
   color: white;
-  margin-top: 6rem;
+  margin-top: 5rem;
 }
 
 .purple {
@@ -84,10 +88,86 @@ p[class="numero-domanda"] {
 
 .timer {
   position: absolute;
-  top: 3rem;
+  top: 1.5rem;
   right: 9rem;
   width: 6rem;
   height: 6rem;
   border-radius: 50px;
   background-color: aqua;
+}
+
+@media (min-width: 1400px) {
+  .timer {
+    background-color: red;
+  }
+  div[class="elenco-risposte"] {
+    margin-right: 16rem;
+    margin-left: 16rem;
+  }
+  p[class="domanda"] {
+    font-size: 35px;
+    margin-top: 13rem;
+  }
+  div[class="elenco-risposte"] .box-risposta {
+    width: 24rem;
+    padding: 1.6rem 3.2rem;
+    font-size: 18px;
+  }
+  p[class="numero-domanda"] {
+    margin-top: 5rem;
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 1700px) {
+  .timer {
+    background-color: black;
+  }
+  div[class="elenco-risposte"] {
+    margin-right: 16rem;
+    margin-left: 16rem;
+  }
+  p[class="domanda"] {
+    font-size: 45px;
+    margin-top: 15rem;
+  }
+  div[class="elenco-risposte"] .box-risposta {
+    width: 30rem;
+    padding: 1.6rem 3.2rem;
+    font-size: 22px;
+  }
+  p[class="numero-domanda"] {
+    margin-top: 5rem;
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 2200px) {
+  .timer {
+    background-color: rgb(255, 255, 255);
+  }
+  div[class="elenco-risposte"] {
+    margin-right: 16rem;
+    margin-left: 16rem;
+  }
+  p[class="domanda"] {
+    margin-top: 22rem;
+    font-size: 60px;
+    margin-bottom: -10rem;
+  }
+  div[class="elenco-risposte"] .box-risposta {
+    width: 45rem;
+    padding: 2.4rem 3.2rem;
+    font-size: 34px;
+  }
+  p[class="numero-domanda"] {
+    margin-top: 9rem;
+    font-size: 36px;
+  }
+  .logo {
+    position: absolute;
+    top: 2rem;
+    left: 5rem;
+    width: 20rem;
+  }
 }
