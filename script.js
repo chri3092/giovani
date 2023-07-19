@@ -119,6 +119,7 @@ function changePage() {
   indice++;
   correctAnswer = questions[indice].correct_answer;
   wrongAnswers = questions[indice].incorrect_answers;
+  removeAnswer();
 }
 /*funzioni cambia titolo-domande-numeroDomanda*/
 function changeTitle() {
@@ -155,4 +156,20 @@ function joinAnswer() {
   allAnswer = wrongAnswers;
 }
 /*funzione che aggiusta le risposte a scelta booleana*/
-function controlNumberOfAnswer() {}
+const div = document.createElement("div");
+div.setAttribute.onclick = "changePage()";
+div.setAttribute.type = "button";
+div.setAttribute.value = "caneENORME";
+div.classList.add("box-risposta");
+
+function removeAnswer() {
+  if (allAnswer.length === 2) {
+    allButtons[2].remove();
+    allButtons[3].remove();
+  }
+}
+function addAnswer() {
+  //non funge e puo' morire sola
+  div.appendChild(allButtons[1]);
+  div.appendChild(div.appendChild(allButtons[1]));
+}
