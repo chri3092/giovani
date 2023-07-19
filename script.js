@@ -130,7 +130,6 @@ function changeNad() {
 function changeAnswers() {
   joinAnswer();
   mixedAnswer = mixArray(allAnswer);
-  allButtons[0].value = mixedAnswer[0];
   for (let i = 0; i < allButtons.length; i++) {
     allButtons[i].value = mixedAnswer[i];
   }
