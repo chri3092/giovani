@@ -98,46 +98,82 @@
       },
     ];
 
-    
+    /*dichiarazione variabili principali*/
+let CountRightAnswers = 0;
+let indice = 0;
+const titolo = document.querySelector("p[class='domanda']");
+const numberQuestion = document.querySelector(
+  "span[class='numero-attuale-domanda']"
+);
+const allButtons = document.querySelectorAll("input[type='button']");
+let correctAnswer = questions[indice].correct_answer; //SE LE definisco non si incrementano
+let wrongAnswers = questions[indice].incorrect_answers;
+let mixedAnswer = [];
+let allAnswer = [];
 
-    let rightAnswers = 0
-    const titolo = document.querySelector("p[class='domanda']")
-    const numberQuestion = document.querySelector("span[class='numero-attuale-domanda']")
-    const allButtons = document.querySelectorAll("input[type='button']")
-    let indice = 0
+/*Prima domanda al caricamento della pagina*/
 
-    
-    
-    
-    window.addEventListener('load', firstQuery())
-    function firstQuery() {
-      titolo.innerText = questions[0].question
+window.addEventListener("load", changePage());
+
+/*funzione che si attiva al click di un bottone e che attiva le altre*/
+function changePage() {
+  changeTitle();
+  changeNad();
+  changeAnswers();
+  indice++;
+  correctAnswer = questions[indice].correct_answer;
+  wrongAnswers = questions[indice].incorrect_answers;
+  removeAnswer();
+}
+/*funzioni cambia titolo-domande-numeroDomanda*/
+function changeTitle() {
+  titolo.innerText = questions[indice].question;
+}
+function changeNad() {
+  numberQuestion.innerText = indice + 1;
+}
+function changeAnswers() {
+  joinAnswer();
+  mixedAnswer = mixArray(allAnswer);
+  for (let i = 0; i < allButtons.length; i++) {
+    allButtons[i].value = mixedAnswer[i];
+  }
+}
+/*funzione che mischia un array di lunghezza n */
+function mixArray(array) {
+  let solution = [];
+  let indexes = [];
+  let i = 0;
+  while (i < array.length) {
+    let randomNumber = Math.floor(Math.random() * array.length);
+    if (!indexes.includes(randomNumber)) {
+      solution.push(array[randomNumber]);
+      indexes.push(randomNumber);
+      i++;
     }
-    
-    button.addEventListener('click', changeTitle())
-    
+  }
+  return solution;
+}
+/*funzione che mi mette tutte le risposte (giuste e sbagliate) in un vettore*/
+function joinAnswer() {
+  wrongAnswers.push(correctAnswer);
+  allAnswer = wrongAnswers;
+}
+/*funzione che aggiusta le risposte a scelta booleana*/
+const div = document.createElement("div");
+div.setAttribute.onclick = "changePage()";
+div.setAttribute.type = "button";
+div.setAttribute.value = "caneENORME";
+div.classList.add("box-risposta");
 
-    function changePage() {
-
-      indice += 1
-
-      changeTitle(); 
-      /* changeAnswers();  */
-      changeNad(); 
-    
-    }
-    
-    
-    function changeTitle() {
-      titolo.innerText = questions[indice].question
-    }
-    function changeAnswers() {
-      titolo.innerText = questions[indice].question
-    }
-    function changeNad() {
-      numberQuestion.innerText = indice  + 1 
-    }
-    
-
-
-
+function removeAnswer() {
+  if (allAnswer.length === 2) {
+    allButtons[2].remove();
+    allButtons[3].remove();
+  }
+}
+function addAnswer() {
+  //non funge e puo' morire sola
+  div.appendChild(allButtons[1]);
+  div.appendChild(div.appendChild(allButtons[1]));
+}
