@@ -86,20 +86,53 @@ p[class="numero-domanda"] {
   font-weight: bold;
 }
 
+.invisible {
+  visibility: hidden;
+}
+
+/*timer*/
 .timer {
   position: absolute;
-  top: 1.5rem;
-  right: 9rem;
-  width: 6rem;
-  height: 6rem;
-  border-radius: 50px;
-  background-color: aqua;
+  top: -2rem;
+  right: 1rem;
+}
+
+.timer > svg {
+  width: 200px;
+  height: 200px;
+}
+
+.timer > svg > circle {
+  fill: none;
+  stroke-opacity: 0.3;
+  stroke: #f700ff;
+  stroke-width: 10;
+  transform-origin: center center;
+  transform: rotate(-90deg);
+}
+
+.timer > svg > circle + circle {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  stroke-linecap: round;
+  stroke-opacity: 1;
+}
+
+.timer.animatable > svg > circle + circle {
+  transition: stroke-dashoffset 0.3s ease;
+}
+
+.timer > svg > text {
+  font-size: 2rem;
+  fill: white;
+}
+
+.timer > svg > text + text {
+  font-size: 1rem;
+  fill: white;
 }
 
 @media (min-width: 1400px) {
-  .timer {
-    background-color: red;
-  }
   div[class="elenco-risposte"] {
     margin-right: 16rem;
     margin-left: 16rem;
@@ -121,9 +154,6 @@ p[class="numero-domanda"] {
 
 /*Per certe cose era meglio settare una min/max width ma adesso non ne ho vboglia*/
 @media (min-width: 1700px) {
-  .timer {
-    background-color: black;
-  }
   div[class="elenco-risposte"] {
     margin-right: 16rem;
     margin-left: 16rem;
@@ -144,9 +174,6 @@ p[class="numero-domanda"] {
 }
 
 @media (min-width: 2200px) {
-  .timer {
-    background-color: rgb(255, 255, 255);
-  }
   div[class="elenco-risposte"] {
     margin-right: 16rem;
     margin-left: 16rem;
