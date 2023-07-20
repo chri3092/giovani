@@ -4,6 +4,7 @@ html {
   min-height: 100%;
   margin: 0;
   font-family: "Outfit", sans-serif;
+  overflow: hidden;
 }
 
 /*imposto lo sfondo della pagina*/
@@ -35,45 +36,16 @@ div[class="elenco-risposte"] {
   margin-top: 16rem;
   margin-right: 15rem;
   margin-left: 15rem;
-  border-radius: 50px;
-  overflow: hidden;
 }
-
-/* .box-risposta ::before {
-  z-index: -1;
-} */
 
 div[class="elenco-risposte"] .box-risposta {
   font-family: "Inter", sans-serif;
   background-color: rgba(255, 255, 255, 0.3);
-  color: white !important;
-  display: flex;
-  align-items: center;
-  //width: 50vw;
-  width: 90%;
-  margin: auto;
-  max-width: 22em;
-
-  position: relative;
-  padding: 30% 2em;
-  box-sizing: border-box;
-
-  $border: 5px;
-  color: #FFF;
-  background: #000;
-  background-clip: padding-box; /* !importanté */
-  border: solid $border transparent; /* !importanté */
-  border-radius: 1em;
-
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0; right: 0; bottom: 0; left: 0;
-    z-index: -1;
-    margin: -$border; /* !importanté */
-    border-radius: inherit; /* !importanté */
-    background: linear-gradient(to right, red, orange);
-  }
+  color: white;
+  width: 20rem;
+  padding: 1.4rem 2.5rem;
+  border-radius: 50px;
+  font-size: 16px;
 }
 
 div[class="elenco-risposte"] .box-risposta:hover {
@@ -95,15 +67,18 @@ div[class="elenco-risposte"] .box-risposta:hover {
 
 p[class="domanda"] {
   margin-bottom: -15rem;
-  margin-top: 11rem;
+  margin-top: 9rem;
+  margin-right: 5rem;
+  margin-left: 5rem;
   color: white;
   padding-bottom: 3rem;
-  font-size: 40px;
+  font-size: 35px;
+  text-align: center;
 }
 
 p[class="numero-domanda"] {
   color: white;
-  margin-top: 6rem;
+  margin-top: 5rem;
 }
 
 .purple {
@@ -111,12 +86,116 @@ p[class="numero-domanda"] {
   font-weight: bold;
 }
 
+.invisible {
+  visibility: hidden;
+}
+
+/*timer*/
 .timer {
   position: absolute;
-  top: 3rem;
-  right: 9rem;
-  width: 6rem;
-  height: 6rem;
-  border-radius: 50px;
-  background-color: aqua;
+  top: -2rem;
+  right: 1rem;
+}
+
+.timer > svg {
+  width: 200px;
+  height: 200px;
+}
+
+.timer > svg > circle {
+  fill: none;
+  stroke-opacity: 0.3;
+  stroke: #f700ff;
+  stroke-width: 10;
+  transform-origin: center center;
+  transform: rotate(-90deg);
+}
+
+.timer > svg > circle + circle {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  stroke-linecap: round;
+  stroke-opacity: 1;
+}
+
+.timer.animatable > svg > circle + circle {
+  transition: stroke-dashoffset 0.3s ease;
+}
+
+.timer > svg > text {
+  font-size: 2rem;
+  fill: white;
+}
+
+.timer > svg > text + text {
+  font-size: 1rem;
+  fill: white;
+}
+
+@media (min-width: 1400px) {
+  div[class="elenco-risposte"] {
+    margin-right: 16rem;
+    margin-left: 16rem;
+  }
+  p[class="domanda"] {
+    font-size: 35px;
+    margin-top: 13rem;
+  }
+  div[class="elenco-risposte"] .box-risposta {
+    width: 24rem;
+    padding: 1.6rem 3.2rem;
+    font-size: 18px;
+  }
+  p[class="numero-domanda"] {
+    margin-top: 5rem;
+    font-size: 20px;
+  }
+}
+
+/*Per certe cose era meglio settare una min/max width ma adesso non ne ho vboglia*/
+@media (min-width: 1700px) {
+  div[class="elenco-risposte"] {
+    margin-right: 16rem;
+    margin-left: 16rem;
+  }
+  p[class="domanda"] {
+    font-size: 45px;
+    margin-top: 15rem;
+  }
+  div[class="elenco-risposte"] .box-risposta {
+    width: 30rem;
+    padding: 1.6rem 3.2rem;
+    font-size: 22px;
+  }
+  p[class="numero-domanda"] {
+    margin-top: 5rem;
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 2200px) {
+  div[class="elenco-risposte"] {
+    margin-right: 16rem;
+    margin-left: 16rem;
+  }
+  p[class="domanda"] {
+    margin-top: 22rem;
+    font-size: 60px;
+    margin-bottom: -10rem;
+  }
+  div[class="elenco-risposte"] .box-risposta {
+    width: 45rem;
+    padding: 2.4rem 3.2rem;
+    font-size: 34px;
+  }
+  p[class="numero-domanda"] {
+    margin-top: 9rem;
+    font-size: 36px;
+  }
+  .logo {
+    position: absolute;
+    top: 2rem;
+    left: 5rem;
+    width: 20rem;
+  }
 }
