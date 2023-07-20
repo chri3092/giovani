@@ -95,11 +95,12 @@ const questions = [
 ];
 
 /*dichiarazione variabili principali*/
-let CountRightAnswers = 0;
+let countRightAnswers = 0;
 let indice = 0;
 let primaPagina = true;
 let mixedAnswer = [];
 let allAnswer = [];
+let userAnswer = [];
 let isDouble = false;
 let correctAnswer = questions[indice].correct_answer; //SE LE definisco non si incrementano
 let wrongAnswers = questions[indice].incorrect_answers;
@@ -112,14 +113,17 @@ const allButtons = document.querySelectorAll("input[type='button']");
 window.addEventListener("load", changePage());
 
 /*funzione che si attiva al click di un bottone e che attiva le altre*/
-function changePage() {
-  checkAnswer(); //controllo risposte
+function changePage(event) {
+  if (primaPagina === false) {
+    userAnswer.push(event.target.value);
+  }
+  checkAnswer(); //ho scelto la risposta giuta? Se si' incremento countRightAnswer
   indexIncrement(); //mi aumenta gli indici, agisce da ciclo for (dopo la prima pagina)
   joinAnswer(); //mi mette tutte le risposte di un singolo vettore in una domanda
+  changeAnswers(); //cambia le risposte e le mischia
   removeAddAnswer(); //mi controlla se le risposte sono due o quattro
   changeTitle(); //cambia il titolo
   changeNad(); //cambia il numero della domanda
-  changeAnswers(); //cambia le domande
 }
 /*funzioni cambia titolo-domande-numeroDomanda*/
 function changeTitle() {
@@ -181,17 +185,15 @@ function indexIncrement() {
 function guestAnswer() {}
 
 function checkAnswer() {
-  for (const button of allButtons) {
-    if (button.clicked === "true") {
-      if (button.value === correctAnswer) {
-        CountRightAnswers++;
-      }
+  for (const answer of userAnswer) {
+    if (answer === correctAnswer) {
+      countRightAnswers++;
     }
   }
 }
 
 //TIMER
-/*
+
 let timeLeft = 20;
 let timer = document.getElementById("timeLeft");
 
@@ -223,4 +225,3 @@ function runTimer(timerElement) {
 }
 
 runTimer(document.querySelector(".timer"));
-*/
