@@ -10,7 +10,14 @@
   <body class="bg-image">
     <nav>
       <img class="logo" src="./assets/epicode_logo.png" alt="">
-      <div class="timer"></div>
+      <div class="timer animatable">
+    <svg>
+      <circle cx="50%" cy="50%" r="50"/>
+      <circle cx="50%" cy="50%" r="50" pathLength="1" />
+      <text x="100" y="100" text-anchor="middle"><tspan id="timeLeft"></tspan></text>
+      <text x="100" y="120" text-anchor="middle">seconds</text>
+    </svg>
+</div>
     </nav>
     <main>
       <div class="domanda-risposte-flex">       
@@ -21,7 +28,7 @@
           <input type="button" onclick="changePage()" class="box-risposta" value=""></input>
           <input type="button" onclick="changePage()" class="box-risposta" value=""></input>
         </div>
-        <p class="numero-domanda">QUESTION <span class="numero-attuale-domanda">1</span> <span class="purple">/</span> <span class="numero-totale-domande purple">10</span></p>
+        <p class="numero-domanda">QUESTION <span class="num-att-domanda">1</span> <span class="purple">/</span> <span class="numero-totale-domande purple">10</span></p>
       </div>
     </main>
     <script src="script.js"></script>
