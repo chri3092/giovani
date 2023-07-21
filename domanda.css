@@ -87,7 +87,7 @@ p[class="numero-domanda"] {
 }
 
 .invisible {
-  visibility: hidden;
+  display: none;
 }
 
 div[class="show-result"] {
@@ -96,7 +96,13 @@ div[class="show-result"] {
   text-align: center;
   margin-top: 10rem;
 }
-
+.applause {
+  position: relative;
+  width: 100px;
+  height: 110px;
+  top: 1rem;
+  border-radius: 12px;
+}
 /*timer*/
 .timer {
   position: absolute;
