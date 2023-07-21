@@ -107,6 +107,9 @@ let wrongAnswers = questions[indice].incorrect_answers;
 const titolo = document.querySelector("p[class='domanda']");
 const numberQuestion = document.querySelector("span[class='num-att-domanda']");
 const allButtons = document.querySelectorAll("input[type='button']");
+const eliminateContent = document.querySelector("div[class='all-content']");
+const showResult = document.querySelector("div[class='show-result invisible']");
+const percentage = document.querySelector("span");
 
 /*Prima domanda al caricamento della pagina*/
 
@@ -117,7 +120,7 @@ function changePage(event) {
   if (primaPagina === false) {
     userAnswer.push(event.target.value);
   }
-  checkAnswer(); //ho scelto la risposta giuta? Se si' incremento countRightAnswer
+  resultPage();
   indexIncrement(); //mi aumenta gli indici, agisce da ciclo for (dopo la prima pagina)
   joinAnswer(); //mi mette tutte le risposte di un singolo vettore in una domanda
   changeAnswers(); //cambia le risposte e le mischia
@@ -182,19 +185,32 @@ function indexIncrement() {
     primaPagina = false;
   }
 }
-function guestAnswer() {}
 
 function checkAnswer() {
+  let j = 0;
   for (const answer of userAnswer) {
-    if (answer === correctAnswer) {
+    if (answer === questions[j].correct_answer) {
       countRightAnswers++;
+      j++;
+    } else {
+      j++;
     }
+  }
+}
+
+function resultPage() {
+  if (indice === 9) {
+    checkAnswer();
+    eliminateContent.classList.add("invisible");
+    showResult.classList.remove("invisible");
+    percentage.innerText = (countRightAnswers / questions.length) * 100;
+    return 0;
   }
 }
 
 //TIMER
 
-let timeLeft = 20;
+/*let timeLeft = 20;
 let timer = document.getElementById("timeLeft");
 
 function isTimeLeft() {
@@ -224,4 +240,4 @@ function runTimer(timerElement) {
   }, 1000);
 }
 
-runTimer(document.querySelector(".timer"));
+runTimer(document.querySelector(".timer"));*/
