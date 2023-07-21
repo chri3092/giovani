@@ -90,6 +90,13 @@ p[class="numero-domanda"] {
   visibility: hidden;
 }
 
+div[class="show-result"] {
+  color: white;
+  font-size: 5rem;
+  text-align: center;
+  margin-top: 10rem;
+}
+
 /*timer*/
 .timer {
   position: absolute;
