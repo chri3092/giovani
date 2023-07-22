@@ -1,0 +1,96 @@
+body {
+  margin: 0;
+  height: 100%;
+  background-image: url(./assets/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#logo {
+  width: 200px;
+  margin-left: 150px;
+  margin-top: 50px;
+}
+
+#content {
+  display: flex;
+  flex-direction: column;
+  margin-left: 150px;
+}
+
+.title-text {
+  font-size: 6em;
+  color: white;
+  font-family: "Josefin Sans", sans-serif;
+  font-family: "Outfit", sans-serif;
+}
+
+#text-align {
+  line-height: 30px;
+  padding-top: 120px;
+}
+
+#instructions {
+  font-size: 3em;
+  color: #d20094;
+  padding-top: 40px;
+  font-family: "Outfit", sans-serif;
+}
+
+#main-text {
+  color: white;
+  font-size: 1.2em;
+  font-family: "Inter", sans-serif;
+}
+#main-text p {
+  margin: 0;
+}
+
+#main-text ul {
+  padding-top: 30px;
+}
+
+#footer {
+  margin-left: 150px;
+  margin-right: 150px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 150px;
+  margin-bottom: 15px;
+}
+
+#button {
+  width: 180px;
+  height: 50px;
+  font-size: 1.3em;
+  background-color: aqua;
+  cursor: pointer;
+  border: none;
+}
+
+#button:hover {
+  box-shadow: 0px 0px 20px aqua;
+}
+
+#checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+#checkbox-text {
+  font-size: 1.2em;
+  padding-left: 10px;
+  color: white;
+}
+
+#align-checkbox-text {
+  display: flex;
+  align-items: center;
+}
+
+.button-not-pressed {
+  filter: opacity(0.7);
+}

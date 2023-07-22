@@ -87,26 +87,39 @@ p[class="numero-domanda"] {
 }
 
 .invisible {
-  visibility: hidden;
+  display: none;
 }
 
+div[class="show-result"] {
+  color: white;
+  font-size: 5rem;
+  text-align: center;
+  margin-top: 10rem;
+}
+.applause {
+  position: relative;
+  width: 100px;
+  height: 110px;
+  top: 1rem;
+  border-radius: 12px;
+}
 /*timer*/
 .timer {
   position: absolute;
-  top: -2rem;
-  right: 1rem;
+  top: 1.5rem;
+  right: 3rem;
 }
 
 .timer > svg {
   width: 200px;
-  height: 200px;
+  height: 170px;
 }
 
 .timer > svg > circle {
   fill: none;
   stroke-opacity: 0.3;
   stroke: #f700ff;
-  stroke-width: 10;
+  stroke-width: 16;
   transform-origin: center center;
   transform: rotate(-90deg);
 }
@@ -123,12 +136,13 @@ p[class="numero-domanda"] {
 }
 
 .timer > svg > text {
-  font-size: 2rem;
+  font-size: 3.3rem;
   fill: white;
 }
 
 .timer > svg > text + text {
-  font-size: 1rem;
+  font-size: 1.3rem;
+
   fill: white;
 }
 
@@ -154,48 +168,47 @@ p[class="numero-domanda"] {
 
 /*Per certe cose era meglio settare una min/max width ma adesso non ne ho vboglia*/
 @media (min-width: 1700px) {
-  div[class="elenco-risposte"] {
-    margin-right: 16rem;
-    margin-left: 16rem;
-  }
-  p[class="domanda"] {
-    font-size: 45px;
-    margin-top: 15rem;
-  }
-  div[class="elenco-risposte"] .box-risposta {
-    width: 30rem;
-    padding: 1.6rem 3.2rem;
-    font-size: 22px;
-  }
-  p[class="numero-domanda"] {
-    margin-top: 5rem;
-    font-size: 24px;
-  }
-}
-
-@media (min-width: 2200px) {
-  div[class="elenco-risposte"] {
-    margin-right: 16rem;
-    margin-left: 16rem;
-  }
-  p[class="domanda"] {
-    margin-top: 22rem;
-    font-size: 60px;
-    margin-bottom: -10rem;
-  }
-  div[class="elenco-risposte"] .box-risposta {
-    width: 45rem;
-    padding: 2.4rem 3.2rem;
-    font-size: 34px;
-  }
-  p[class="numero-domanda"] {
-    margin-top: 9rem;
-    font-size: 36px;
-  }
   .logo {
     position: absolute;
-    top: 2rem;
+    top: 3rem;
     left: 5rem;
-    width: 20rem;
+    width: 16rem;
+  }
+  div[class="elenco-risposte"] {
+    margin-right: 16rem;
+    margin-left: 16rem;
+  }
+  p[class="domanda"] {
+    font-size: 55px;
+    margin-top: 15rem;
+    margin-bottom: -13rem;
+  }
+  div[class="elenco-risposte"] .box-risposta {
+    width: 32rem;
+    padding: 1.8rem 3.4rem;
+    font-size: 24px;
+  }
+  p[class="numero-domanda"] {
+    margin-top: 6rem;
+    font-size: 24px;
+  }
+
+  div[class="show-result"] {
+    color: white;
+    font-size: 6rem;
+    text-align: center;
+    margin-top: 10rem;
+  }
+
+  div[class="show-result"] span {
+    color: #f700ff;
+  }
+  .applause {
+    position: relative;
+    width: 100px;
+    height: 110px;
+    top: 1rem;
+    border-radius: 12px;
+    margin-left: 2rem;
   }
 }

@@ -94,32 +94,58 @@ const questions = [
   },
 ];
 
+//checkbox
+const checkbox = document.getElementById("checkbox");
+const buttonIndex = document.getElementById("button");
+
+function changeToQuestions() {
+  window.open("domanda.html");
+}
+
+function checkCheckbox() {
+  if (checkbox.checked) {
+    buttonIndex.disabled = false;
+    buttonIndex.classList.remove("button-not-pressed");
+  } else {
+    buttonIndex.disabled = true;
+    buttonIndex.classList.add("button-not-pressed");
+  }
+}
+
 /*dichiarazione variabili principali*/
-let CountRightAnswers = 0;
+let countRightAnswers = 0;
 let indice = 0;
 let primaPagina = true;
 let mixedAnswer = [];
 let allAnswer = [];
+let userAnswer = [];
 let isDouble = false;
 let correctAnswer = questions[indice].correct_answer; //SE LE definisco non si incrementano
 let wrongAnswers = questions[indice].incorrect_answers;
 const titolo = document.querySelector("p[class='domanda']");
 const numberQuestion = document.querySelector("span[class='num-att-domanda']");
 const allButtons = document.querySelectorAll("input[type='button']");
+const eliminateContent = document.querySelector("div[class='all-content']");
+const showResult = document.querySelector("div[class='show-result invisible']");
+const percentage = document.querySelector("span");
 
 /*Prima domanda al caricamento della pagina*/
 
 window.addEventListener("load", changePage());
 
 /*funzione che si attiva al click di un bottone e che attiva le altre*/
-function changePage() {
-  checkAnswer(); //controllo risposte
+function changePage(event) {
+  if (primaPagina === false) {
+    userAnswer.push(event.target.value);
+    timeLeft = 15;
+  }
+  resultPage();
   indexIncrement(); //mi aumenta gli indici, agisce da ciclo for (dopo la prima pagina)
   joinAnswer(); //mi mette tutte le risposte di un singolo vettore in una domanda
+  changeAnswers(); //cambia le risposte e le mischia
   removeAddAnswer(); //mi controlla se le risposte sono due o quattro
   changeTitle(); //cambia il titolo
   changeNad(); //cambia il numero della domanda
-  changeAnswers(); //cambia le domande
 }
 /*funzioni cambia titolo-domande-numeroDomanda*/
 function changeTitle() {
@@ -170,6 +196,9 @@ function removeAddAnswer() {
 
 //mi aumenta gli indici DOPO la prima chiamata della funzione changePage
 function indexIncrement() {
+  if (indice === 9) {
+    return 0;
+  }
   if (primaPagina != true) {
     indice++;
     correctAnswer = questions[indice].correct_answer;
@@ -178,21 +207,33 @@ function indexIncrement() {
     primaPagina = false;
   }
 }
-function guestAnswer() {}
 
 function checkAnswer() {
-  for (const button of allButtons) {
-    if (button.clicked === "true") {
-      if (button.value === correctAnswer) {
-        CountRightAnswers++;
-      }
+  let j = 0;
+  for (const answer of userAnswer) {
+    if (answer === questions[j].correct_answer) {
+      countRightAnswers++;
+      j++;
+    } else {
+      j++;
     }
   }
 }
 
-//TIMER
-/*
-let timeLeft = 20;
+function resultPage() {
+  if (indice === 9) {
+    checkAnswer();
+    eliminateContent.classList.add("invisible");
+    showResult.classList.remove("invisible");
+    percentage.innerText = (countRightAnswers / questions.length) * 100;
+    return 0;
+  }
+}
+
+//TIMER;
+//https://codepen.io/kirtivernekar/pen/PoJOMbb//
+
+let timeLeft = 15;
 let timer = document.getElementById("timeLeft");
 
 function isTimeLeft() {
@@ -205,22 +246,22 @@ function runTimer(timerElement) {
   timerCircle.style.strokeDashoffset = 1;
 
   let countdownTimer = setInterval(function () {
-    if (isTimeLeft()) {
-      const timeRemaining = timeLeft--;
-      const normalizedTime = (20 - timeRemaining) / 20;
-      // for clockwise animation
-      // const normalizedTime = (timeRemaining - 20) / 20;
-      timerCircle.style.strokeDashoffset = normalizedTime;
-      timer.innerHTML = timeRemaining;
-    } else {
+    if (indice === 10) {
       clearInterval(countdownTimer);
       timerElement.classList.remove("animatable");
-      changePage(); //quando il tempo uguale a 0 cambio pagina e resetto il timer e la funzione
-      timeLeft = 20;
-      runTimer(timerElement);
+    }
+    if (isTimeLeft()) {
+      const timeRemaining = timeLeft--;
+      const normalizedTime = (15 - timeRemaining) / 15;
+      // for clockwise animation
+      // const normalizedTime = (timeRemaining - 15) / 15;
+      timerCircle.style.strokeDashoffset = normalizedTime;
+      timer.innerHTML = timeRemaining;
+    } else if (allButtons[0].value !== questions[indice].correct_answer) {
+      allButtons[0].click();
+    } else {
+      allButtons[1].click();
     }
   }, 1000);
 }
-
 runTimer(document.querySelector(".timer"));
-*/
